@@ -1,0 +1,11 @@
+"cancelButtonTitle" = "Cancel";
+"screenTitle" = "Create Account";
+"firstNameInputViewTitlePlaceholder" = "First Name";
+"lastNameInputViewTitlePlaceholder" = "Last Name";
+"emailInputViewTitlePlaceholder" = "Email";
+"passwordInputViewTitlePlaceholder" = "Password";
+"phoneInputViewTitlePlaceholder" = "Phone Number";
+"birthdayInputViewTitlePlaceholder" = "Birthday (Optional)";
+"agreeTermsAndConditions" = "By creating an account, I agree to the %@ and to receive email offers at the email address I provided.";
+"referenceTermsAndConditions" = "Terms & Conditions";
+"signInButtonTitle" = "Sign In";
