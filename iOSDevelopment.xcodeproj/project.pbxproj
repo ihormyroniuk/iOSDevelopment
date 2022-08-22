@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C553B3C828B4186D008FF526 /* TopAlertViewControllerTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C553B3C728B4186D008FF526 /* TopAlertViewControllerTransitioningDelegate.swift */; };
 		C5EA4ABC28B10C5D00FD35CD /* AUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = C5EA4ABB28B10C5D00FD35CD /* AUIKit */; };
 		C5EA4ABF28B10C7F00FD35CD /* AFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = C5EA4ABE28B10C7F00FD35CD /* AFoundation */; };
 		C5EA4AC328B10F1300FD35CD /* ACoreAnimation in Frameworks */ = {isa = PBXBuildFile; productRef = C5EA4AC228B10F1300FD35CD /* ACoreAnimation */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C553B3C728B4186D008FF526 /* TopAlertViewControllerTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAlertViewControllerTransitioningDelegate.swift; sourceTree = "<group>"; };
 		C5EA4AA328B1087F00FD35CD /* iOSDevelopment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDevelopment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5EA4AB428B1088000FD35CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5EA4AC428B10F7400FD35CD /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				C5EA4AD728B10FAE00FD35CD /* TextInputs */,
+				C553B3C728B4186D008FF526 /* TopAlertViewControllerTransitioningDelegate.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				C5EA4AF028B10FAE00FD35CD /* TextButton.swift in Sources */,
 				C5EA4AE628B10FAE00FD35CD /* ScreenViewWithNavigationBar.swift in Sources */,
 				C5EA4AEA28B10FAE00FD35CD /* SignUpScreenView.swift in Sources */,
+				C553B3C828B4186D008FF526 /* TopAlertViewControllerTransitioningDelegate.swift in Sources */,
 				C5EA4AC728B10F7400FD35CD /* main.swift in Sources */,
 				C5EA4AED28B10FAE00FD35CD /* CenterTitledBottomUnderlinedTextFieldInputView.swift in Sources */,
 				C5EA4AEF28B10FAE00FD35CD /* ImageButton.swift in Sources */,
