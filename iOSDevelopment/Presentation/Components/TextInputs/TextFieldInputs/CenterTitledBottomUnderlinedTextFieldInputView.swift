@@ -143,7 +143,7 @@ class CenterTitledBottomUnderlinedTextFieldInputView: AUIView, AUITextFieldTextI
 
     // MARK: Animations
 
-    let animationDuration: CFTimeInterval? = 0.3
+    let animationDuration: CFTimeInterval? = 0.2
 
     private var previousTitleTextLayerAnimationKey: String?
     func addTitleTextLayerAnimation(frame: CGRect, foregroundColor: UIColor, font: UIFont) {
