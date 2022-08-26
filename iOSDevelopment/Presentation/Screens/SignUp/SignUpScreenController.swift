@@ -10,7 +10,7 @@ import UIKit
 import AUIKit
 import AFoundation
 
-class SignUpScreenController: UIViewController, AUITextFieldControllerDidBeginEditingObserver, AUITextFieldControllerDidTapReturnKeyObserver {
+class SignUpScreenController: UIViewController, AUITextFieldControllerDidBeginEditingObserver {
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -90,29 +90,41 @@ class SignUpScreenController: UIViewController, AUITextFieldControllerDidBeginEd
     func setupFirstNameTextFieldInputView() {
         firstNameTextFieldController.returnKeyType = .next
         firstNameTextFieldController.keyboardType = .default
-        firstNameTextFieldController.addDidTapReturnKeyObserver(self)
         let textInputValidator = AUIMaximumLenghtTextInputValidator(maximumLength: 16)
         firstNameTextFieldController.textInputValidator = textInputValidator
         firstNameTextFieldInputView.textFieldController = firstNameTextFieldController
         firstNameTextFieldInputView.view = screenView.firstNameTextFieldInputView
+        firstNameTextFieldController.didTapReturnKey = { [weak self] in
+            guard let self = self else { return true }
+            self.lastNameTextFieldInputView.textFieldController?.becomeFirstResponder()
+            return false
+        }
     }
 
     func setupLastNameTextFieldInputView() {
         lastNameTextFieldController.returnKeyType = .next
         lastNameTextFieldController.keyboardType = .default
-        lastNameTextFieldController.addDidTapReturnKeyObserver(self)
         let textInputValidator = AUIMaximumLenghtTextInputValidator(maximumLength: 24)
         lastNameTextFieldController.textInputValidator = textInputValidator
         lastNameTextFieldInputView.textFieldController = lastNameTextFieldController
         lastNameTextFieldInputView.view = screenView.lastNameTextFieldInputView
+        lastNameTextFieldInputView.didTapReturnKey = { [weak self] in
+            guard let self = self else { return true }
+            self.emailTextFieldInputView.textFieldController?.becomeFirstResponder()
+            return false
+        }
     }
 
     func setupEmailTextFieldInputView() {
         emailTextFieldController.returnKeyType = .next
         emailTextFieldController.keyboardType = .emailAddress
-        emailTextFieldController.addDidTapReturnKeyObserver(self)
         emailTextFieldInputView.textFieldController = emailTextFieldController
         emailTextFieldInputView.view = screenView.emailTextFieldInputView
+        emailTextFieldInputView.didTapReturnKey = { [weak self] in
+            guard let self = self else { return true }
+            self.phoneTextFieldInputView.textFieldController?.becomeFirstResponder()
+            return false
+        }
     }
 
     func setupPasswordTextFieldInputView() {
@@ -120,11 +132,15 @@ class SignUpScreenController: UIViewController, AUITextFieldControllerDidBeginEd
         passwordTextFieldController.keyboardType = .default
         passwordTextFieldController.autocorrectionType = .no
         passwordTextFieldController.isSecureTextEntry = true
-        passwordTextFieldController.addDidTapReturnKeyObserver(self)
         let textInputValidator = AUIMaximumLenghtTextInputValidator(maximumLength: 64)
         passwordTextFieldController.textInputValidator = textInputValidator
         passwordTextFieldInputView.textFieldController = passwordTextFieldController
         passwordTextFieldInputView.view = screenView.passwordTextFieldInputView
+        passwordTextFieldInputView.didTapReturnKey = { [weak self] in
+            guard let self = self else { return true }
+            self.birthdayTextFieldInputView.textFieldController?.becomeFirstResponder()
+            return false
+        }
         securePasswordButtonController.button = screenView.securePasswordButton
         securePasswordButtonController.touchUpInside = { [weak self] in
             guard let self = self else { return }
@@ -134,9 +150,13 @@ class SignUpScreenController: UIViewController, AUITextFieldControllerDidBeginEd
 
     func setupPhoneTextFieldInputView() {
         phoneTextFieldController.keyboardType = .asciiCapableNumberPad
-        phoneTextFieldController.addDidTapReturnKeyObserver(self)
         phoneTextFieldInputView.textFieldController = phoneTextFieldController
         phoneTextFieldInputView.view = screenView.phoneTextFieldInputView
+        phoneTextFieldInputView.didTapReturnKey = { [weak self] in
+            guard let self = self else { return true }
+            self.passwordTextFieldInputView.textFieldController?.becomeFirstResponder()
+            return false
+        }
     }
 
     func setupBirthdayTextFieldInputView() {
@@ -183,24 +203,6 @@ class SignUpScreenController: UIViewController, AUITextFieldControllerDidBeginEd
     func textFieldControllerDidBeginEditing(_ textFieldController: AUITextFieldController) {
         if self.birthdayTextFieldInputView.textFieldController === textFieldController {
             setSelectedBirtday()
-        }
-    }
-
-    func textFieldControllerDidTapReturnKey(_ textFieldController: AUITextFieldController) {
-        if firstNameTextFieldInputView.textFieldController === textFieldController {
-            lastNameTextFieldInputView.textFieldController?.becomeFirstResponder()
-        }
-        if lastNameTextFieldInputView.textFieldController === textFieldController {
-            emailTextFieldInputView.textFieldController?.becomeFirstResponder()
-        }
-        if emailTextFieldInputView.textFieldController === textFieldController {
-            passwordTextFieldInputView.textFieldController?.becomeFirstResponder()
-        }
-        if passwordTextFieldInputView.textFieldController === textFieldController {
-            phoneTextFieldInputView.textFieldController?.becomeFirstResponder()
-        }
-        if phoneTextFieldInputView.textFieldController === textFieldController {
-            birthdayTextFieldInputView.textFieldController?.becomeFirstResponder()
         }
     }
 
