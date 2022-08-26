@@ -10,7 +10,7 @@ import UIKit
 import AUIKit
 import AFoundation
 
-class SignUpScreenController: UIViewController, AUIControlControllerDidValueChangedObserver, AUITextFieldControllerDidBeginEditingObserver, AUIControlControllerDidTouchUpInsideObserver, AUITextFieldControllerDidTapReturnKeyObserver {
+class SignUpScreenController: UIViewController, AUITextFieldControllerDidBeginEditingObserver, AUITextFieldControllerDidTapReturnKeyObserver {
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -81,7 +81,10 @@ class SignUpScreenController: UIViewController, AUIControlControllerDidValueChan
 
     func setupCancelButtonController() {
         cancelButtonController.button = screenView.cancelButton
-        cancelButtonController.addDidTouchUpInsideObserver(self)
+        cancelButtonController.touchUpInside = { [weak self] in
+            guard let self = self else { return }
+            self.cancel()
+        }
     }
 
     func setupFirstNameTextFieldInputView() {
@@ -123,7 +126,10 @@ class SignUpScreenController: UIViewController, AUIControlControllerDidValueChan
         passwordTextFieldInputView.textFieldController = passwordTextFieldController
         passwordTextFieldInputView.view = screenView.passwordTextFieldInputView
         securePasswordButtonController.button = screenView.securePasswordButton
-        securePasswordButtonController.addDidTouchUpInsideObserver(self)
+        securePasswordButtonController.touchUpInside = { [weak self] in
+            guard let self = self else { return }
+            self.securePassword()
+        }
     }
 
     func setupPhoneTextFieldInputView() {
@@ -138,7 +144,10 @@ class SignUpScreenController: UIViewController, AUIControlControllerDidValueChan
         birthdayTextFieldController.addDidBeginEditingObserver(self)
         birthdayDatePickerController.maximumDate = Date()
         birthdayDatePickerController.mode = .date
-        birthdayDatePickerController.addDidValueChangedObserver(self)
+        birthdayDatePickerController.valueChanged = {[weak self] in
+            guard let self = self else { return }
+            self.setSelectedBirtday()
+        }
         birthdayTextFieldInputView.textFieldController = birthdayTextFieldController
         birthdayTextFieldInputView.view = screenView.birthdayTextFieldInputView
     }
@@ -149,7 +158,10 @@ class SignUpScreenController: UIViewController, AUIControlControllerDidValueChan
 
     func setupSignInButtonController() {
         signUpButtonController.button = screenView.signUpButton
-        signUpButtonController.addDidTouchUpInsideObserver(self)
+        signUpButtonController.touchUpInside = { [weak self] in
+            guard let self = self else { return }
+            self.signUp()
+        }
     }
 
     // MARK: Events
@@ -171,24 +183,6 @@ class SignUpScreenController: UIViewController, AUIControlControllerDidValueChan
     func textFieldControllerDidBeginEditing(_ textFieldController: AUITextFieldController) {
         if self.birthdayTextFieldInputView.textFieldController === textFieldController {
             setSelectedBirtday()
-        }
-    }
-
-    func controlControllerDidValueChanged(_ controlController: AUIControlController) {
-        if birthdayDatePickerController === controlController {
-            setSelectedBirtday()
-        }
-    }
-
-    func controlControllerDidTouchUpInside(_ controlController: AUIControlController) {
-        if cancelButtonController === controlController {
-            cancel()
-        }
-        if self.securePasswordButtonController === controlController {
-            securePassword()
-        }
-        if self.signUpButtonController === controlController {
-            signUp()
         }
     }
 
