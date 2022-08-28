@@ -10,7 +10,7 @@ import UIKit
 import AUIKit
 import AFoundation
 
-class SignUpScreenController: UIViewController, AUITextFieldControllerDidBeginEditingObserver {
+class SignUpScreenController: UIViewController {
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -161,7 +161,6 @@ class SignUpScreenController: UIViewController, AUITextFieldControllerDidBeginEd
 
     func setupBirthdayTextFieldInputView() {
         birthdayTextFieldController.inputViewController = self.birthdayDatePickerController
-        birthdayTextFieldController.addDidBeginEditingObserver(self)
         birthdayDatePickerController.maximumDate = Date()
         birthdayDatePickerController.mode = .date
         birthdayDatePickerController.valueChanged = {[weak self] in
@@ -170,6 +169,10 @@ class SignUpScreenController: UIViewController, AUITextFieldControllerDidBeginEd
         }
         birthdayTextFieldInputView.textFieldController = birthdayTextFieldController
         birthdayTextFieldInputView.view = screenView.birthdayTextFieldInputView
+        birthdayTextFieldInputView.didBeginEditing = { [weak self] in
+            guard let self = self else { return }
+            self.setSelectedBirtday()
+        }
     }
 
     func setupTermsAndConditionsInteractiveLabel() {
@@ -197,12 +200,6 @@ class SignUpScreenController: UIViewController, AUITextFieldControllerDidBeginEd
         if let keyboardFrameValue: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardFrame = keyboardFrameValue.cgRectValue
             screenView.keyboardWillHide(keyboardFrame)
-        }
-    }
-
-    func textFieldControllerDidBeginEditing(_ textFieldController: AUITextFieldController) {
-        if self.birthdayTextFieldInputView.textFieldController === textFieldController {
-            setSelectedBirtday()
         }
     }
 
