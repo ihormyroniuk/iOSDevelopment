@@ -21,6 +21,10 @@ class SignUpScreenController: UIViewController {
         return nil
     }
     
+    // MARK: - Events
+    
+    var didCancel: (() -> Void)?
+    
     // MARK: Localization
 
     let localization = CompositeLocalizer(textLocalization: TableNameBundleTextLocalizer(tableName: "SignUpScreenStrings", bundle: Bundle.main))
@@ -214,7 +218,8 @@ class SignUpScreenController: UIViewController {
     }
 
     func cancel() {
-        print("cancel")
+        guard let didCancel = didCancel else { return }
+        didCancel()
     }
 
     func securePassword() {

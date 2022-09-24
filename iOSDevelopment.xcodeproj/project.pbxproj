@@ -29,6 +29,8 @@
 		C5EA4AF028B10FAE00FD35CD /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EA4ADF28B10FAE00FD35CD /* TextButton.swift */; };
 		C5EA4AF128B10FAE00FD35CD /* FilledTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EA4AE028B10FAE00FD35CD /* FilledTextButton.swift */; };
 		C5EA4AF228B10FAE00FD35CD /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EA4AE228B10FAE00FD35CD /* Colors.swift */; };
+		C5F8F9A928DF94B200B87CB3 /* MenuScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F8F9A728DF94B200B87CB3 /* MenuScreenView.swift */; };
+		C5F8F9AA28DF94B200B87CB3 /* MenuScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F8F9A828DF94B200B87CB3 /* MenuScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,8 @@
 		C5EA4ADF28B10FAE00FD35CD /* TextButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextButton.swift; sourceTree = "<group>"; };
 		C5EA4AE028B10FAE00FD35CD /* FilledTextButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilledTextButton.swift; sourceTree = "<group>"; };
 		C5EA4AE228B10FAE00FD35CD /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		C5F8F9A728DF94B200B87CB3 /* MenuScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScreenView.swift; sourceTree = "<group>"; };
+		C5F8F9A828DF94B200B87CB3 /* MenuScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,7 @@
 				C5EA4ACD28B10FAE00FD35CD /* ScreenViewWithNavigationBar.swift */,
 				C5EA4AD528B10FAE00FD35CD /* ScreenViewWithDefaultStatusBarAndDefaultNavigationBar.swift */,
 				C5EA4ACE28B10FAE00FD35CD /* Launch */,
+				C5F8F99F28DF921800B87CB3 /* Menu */,
 				C5EA4AD128B10FAE00FD35CD /* SignUp */,
 			);
 			path = Screens;
@@ -190,6 +195,15 @@
 				C5EA4AE228B10FAE00FD35CD /* Colors.swift */,
 			);
 			path = Colors;
+			sourceTree = "<group>";
+		};
+		C5F8F99F28DF921800B87CB3 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				C5F8F9A828DF94B200B87CB3 /* MenuScreenViewController.swift */,
+				C5F8F9A728DF94B200B87CB3 /* MenuScreenView.swift */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,10 +287,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5F8F9A928DF94B200B87CB3 /* MenuScreenView.swift in Sources */,
 				C5EA4AC628B10F7400FD35CD /* Application.swift in Sources */,
 				C5EA4AE828B10FAE00FD35CD /* SignUpScreenController.swift in Sources */,
 				C5EA4AF128B10FAE00FD35CD /* FilledTextButton.swift in Sources */,
 				C5EA4AF228B10FAE00FD35CD /* Colors.swift in Sources */,
+				C5F8F9AA28DF94B200B87CB3 /* MenuScreenViewController.swift in Sources */,
 				C5EA4AEB28B10FAE00FD35CD /* ScreenViewWithDefaultStatusBarAndDefaultNavigationBar.swift in Sources */,
 				C5EA4AEE28B10FAE00FD35CD /* LeftIconedCenterTitledRightButtonedBottomUnderlinedTextFieldInputView.swift in Sources */,
 				C5EA4AE528B10FAE00FD35CD /* Presentation.swift in Sources */,
