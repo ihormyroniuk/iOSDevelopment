@@ -10,6 +10,11 @@ class IPhonePresentation: AUIWindowPresentation, Presentation {
             guard let screenController = screenController else { return }
             self.presentSignUpScreenViewController(screenController)
         }
+        screenController.didSelectCustomShapeScreen = { [weak self, weak screenController] in
+            guard let self = self else { return }
+            guard let screenController = screenController else { return }
+            self.presentCustomShapeScreenViewController(screenController)
+        }
         window.rootViewController = screenController
         window.makeKeyAndVisible()
     }
@@ -24,6 +29,18 @@ class IPhonePresentation: AUIWindowPresentation, Presentation {
         }
         viewController.modalPresentationStyle = .fullScreen
         presentingSignUpScreenViewController = viewController
+        presentingViewController.present(viewController, animated: true, completion: nil)
+    }
+    
+    private var presentingCustomShapeScreenViewController: CustomShapeScreenViewController?
+    func presentCustomShapeScreenViewController(_ presentingViewController: UIViewController) {
+        let viewController = CustomShapeScreenViewController()
+//        viewController.didCancel = { [weak viewController] in
+//            guard let viewController = viewController else { return }
+//            viewController.dismiss(animated: true, completion: nil)
+//        }
+//        viewController.modalPresentationStyle = .fullScreen
+        presentingCustomShapeScreenViewController = viewController
         presentingViewController.present(viewController, animated: true, completion: nil)
     }
     

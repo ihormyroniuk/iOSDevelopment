@@ -6,6 +6,7 @@ class MenuScreenViewController: UIViewController {
     // MARK: - Events
     
     var didSelectSignUpScreen: (() -> Void)?
+    var didSelectCustomShapeScreen: (() -> Void)?
     
     // MARK: View
     
@@ -50,6 +51,23 @@ class MenuScreenViewController: UIViewController {
             return self.menuScreenView.menuItemCollectionViewCellSize()
         }
         cellControllers.append(signupCellController)
+        let customShapeCellController = AUIClosuresCollectionViewCellController()
+        customShapeCellController.cellForItemAtIndexPathClosure = { [weak self] indexPath in
+            guard let self = self else { return UICollectionViewCell() }
+            let cell = self.menuScreenView.menuItemCollectionViewCell(indexPath: indexPath)
+            cell.titleLabel.text = "Custom Shape"
+            return cell
+        }
+        customShapeCellController.didSelectClosure = { [weak self] in
+            guard let self = self else { return }
+            guard let didSelectCustomShapeScreen = self.didSelectCustomShapeScreen else { return }
+            didSelectCustomShapeScreen()
+        }
+        customShapeCellController.sizeForCellClosure = { [weak self] in
+            guard let self = self else { return .zero }
+            return self.menuScreenView.menuItemCollectionViewCellSize()
+        }
+        cellControllers.append(customShapeCellController)
         sectionController.cellControllers = cellControllers
         collectionViewController.sectionControllers = [sectionController]
     }

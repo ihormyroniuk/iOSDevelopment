@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		C553B3C828B4186D008FF526 /* TopAlertViewControllerTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C553B3C728B4186D008FF526 /* TopAlertViewControllerTransitioningDelegate.swift */; };
+		C5C580F32B6464BB00A06DE0 /* CustomShapeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C580F22B6464BB00A06DE0 /* CustomShapeScreenViewController.swift */; };
+		C5C580F52B6464C500A06DE0 /* CustomShapeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C580F42B6464C500A06DE0 /* CustomShapeScreenView.swift */; };
+		C5C580F72B6464EB00A06DE0 /* CustomShapeScreenStrings.strings in Resources */ = {isa = PBXBuildFile; fileRef = C5C580F62B6464EB00A06DE0 /* CustomShapeScreenStrings.strings */; };
 		C5EA4ABC28B10C5D00FD35CD /* AUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = C5EA4ABB28B10C5D00FD35CD /* AUIKit */; };
 		C5EA4ABF28B10C7F00FD35CD /* AFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = C5EA4ABE28B10C7F00FD35CD /* AFoundation */; };
 		C5EA4AC328B10F1300FD35CD /* ACoreAnimation in Frameworks */ = {isa = PBXBuildFile; productRef = C5EA4AC228B10F1300FD35CD /* ACoreAnimation */; };
@@ -35,6 +38,9 @@
 
 /* Begin PBXFileReference section */
 		C553B3C728B4186D008FF526 /* TopAlertViewControllerTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAlertViewControllerTransitioningDelegate.swift; sourceTree = "<group>"; };
+		C5C580F22B6464BB00A06DE0 /* CustomShapeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShapeScreenViewController.swift; sourceTree = "<group>"; };
+		C5C580F42B6464C500A06DE0 /* CustomShapeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShapeScreenView.swift; sourceTree = "<group>"; };
+		C5C580F62B6464EB00A06DE0 /* CustomShapeScreenStrings.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = CustomShapeScreenStrings.strings; sourceTree = "<group>"; };
 		C5EA4AA328B1087F00FD35CD /* iOSDevelopment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDevelopment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5EA4AB428B1088000FD35CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5EA4AC428B10F7400FD35CD /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
@@ -73,6 +79,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C5C580F12B64649500A06DE0 /* CustomShape */ = {
+			isa = PBXGroup;
+			children = (
+				C5C580F22B6464BB00A06DE0 /* CustomShapeScreenViewController.swift */,
+				C5C580F42B6464C500A06DE0 /* CustomShapeScreenView.swift */,
+				C5C580F62B6464EB00A06DE0 /* CustomShapeScreenStrings.strings */,
+			);
+			path = CustomShape;
+			sourceTree = "<group>";
+		};
 		C5EA4A9A28B1087F00FD35CD = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +138,7 @@
 				C5EA4ACE28B10FAE00FD35CD /* Launch */,
 				C5F8F99F28DF921800B87CB3 /* Menu */,
 				C5EA4AD128B10FAE00FD35CD /* SignUp */,
+				C5C580F12B64649500A06DE0 /* CustomShape */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -275,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5EA4AE428B10FAE00FD35CD /* Assets.xcassets in Resources */,
+				C5C580F72B6464EB00A06DE0 /* CustomShapeScreenStrings.strings in Resources */,
 				C5EA4AE728B10FAE00FD35CD /* LaunchScreen.storyboard in Resources */,
 				C5EA4AE928B10FAE00FD35CD /* SignUpScreenStrings.strings in Resources */,
 			);
@@ -287,6 +305,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5C580F32B6464BB00A06DE0 /* CustomShapeScreenViewController.swift in Sources */,
+				C5C580F52B6464C500A06DE0 /* CustomShapeScreenView.swift in Sources */,
 				C5F8F9A928DF94B200B87CB3 /* MenuScreenView.swift in Sources */,
 				C5EA4AC628B10F7400FD35CD /* Application.swift in Sources */,
 				C5EA4AE828B10FAE00FD35CD /* SignUpScreenController.swift in Sources */,
@@ -452,7 +472,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -480,7 +500,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
